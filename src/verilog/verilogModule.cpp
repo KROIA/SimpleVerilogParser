@@ -241,44 +241,6 @@ Module* Module::parseModule(const string &filePath)
     VERILOG_DEBUG(module->toString())
     return module;
 }
-/*VerilogCode Module::getModuleCode(const VerilogCode &code)
-{
-    vector<string> rawCode = code.getContent();
-    vector<string> moduleCode;
 
-    const string beginKeyWord = "module";
-    const string endKeyWord   = "endmodule";
-
-    bool isInModule = false;
-
-    for(size_t i=0; i<rawCode.size(); i++)
-    {
-        string::size_type modulePos = rawCode[i].find(beginKeyWord);
-        string::size_type endmodulePos = rawCode[i].find(endKeyWord);
-        if(modulePos != string::npos)
-        {
-            isInModule = true;
-            rawCode[i] = rawCode[i].substr(modulePos,rawCode.size());
-
-
-        }
-
-        if(endmodulePos != string::npos)
-        {
-            rawCode[i] = rawCode[i].substr(0,endmodulePos+endKeyWord.size());
-
-        }
-        if(isInModule)
-            moduleCode.push_back(rawCode[i]);
-
-        if(endmodulePos != string::npos)
-            isInModule = false;
-
-
-    }
-    VerilogCode modulCode_;
-    modulCode_.setContent(moduleCode);
-    return modulCode_;
-}*/
 
 }
