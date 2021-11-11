@@ -26,6 +26,13 @@ class Pin
         Pin(const Pin &other);
         ~Pin();
 
+        const string &name() const;
+        const Type &type() const;
+        const Direction &direction() const;
+        size_t dimensionMSB() const;
+        size_t dimensionLSB() const;
+        size_t dimension() const;
+
         string toString(size_t tabCount = 0) const;
 
         static Type stringToType(const string &str);

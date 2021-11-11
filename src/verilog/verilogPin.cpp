@@ -33,6 +33,31 @@ Pin::~Pin()
 
 }
 
+const string &Pin::name() const
+{
+    return m_name;
+}
+const Pin::Type &Pin::type() const
+{
+    return m_type;
+}
+const Pin::Direction &Pin::direction() const
+{
+    return m_direction;
+}
+size_t Pin::dimensionMSB() const
+{
+    return m_dimensionMSB;
+}
+size_t Pin::dimensionLSB() const
+{
+    return m_dimensionLSB;
+}
+size_t Pin::dimension() const
+{
+    return m_dimensionMSB-m_dimensionLSB+1;
+}
+
 string Pin::toString(size_t tabCount) const
 {
     string tabs;

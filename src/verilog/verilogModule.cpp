@@ -1,6 +1,12 @@
 #include "verilogModule.h"
 
 namespace SimpleVerilog{
+Module::Module(const string &filePath)
+{
+    Module *m = parseModule(filePath);
+    *this = *m;
+    delete m;
+}
 Module::Module(const string &name,const vector<Pin> &pinList)
 {
     m_name = name;
@@ -8,13 +14,19 @@ Module::Module(const string &name,const vector<Pin> &pinList)
 }
 Module::Module(const Module &other)
 {
-    m_name = other.m_name;
-    m_pins = other.m_pins;
-    m_code = other.m_code;
+    *this = other;
 }
 Module::~Module()
 {
+    m_pins.clear();
+}
 
+const Module &Module::operator=(const Module &other)
+{
+    m_name = other.m_name;
+    m_pins = other.m_pins;
+    m_code = other.m_code;
+    return *this;
 }
 string Module::toString(size_t tabCount) const
 {
@@ -47,6 +59,33 @@ string Module::toString(size_t tabCount) const
 const VerilogCode &Module::getCode() const
 {
     return m_code;
+}
+
+size_t Module::getPinCount() const
+{
+    return m_pins.size();
+}
+
+size_t Module::getPinCount(Pin::Type type) const
+{
+    size_t count = 0;
+    for(size_t i=0; i<m_pins.size(); i++)
+    {
+        if(m_pins[i].type() == type)
+            count += m_pins[i].dimension();
+    }
+    return count;
+}
+
+size_t Module::getPinCount(Pin::Direction dir) const
+{
+    size_t count = 0;
+    for(size_t i=0; i<m_pins.size(); i++)
+    {
+        if(m_pins[i].direction() == dir)
+            count += m_pins[i].dimension();
+    }
+    return count;
 }
 
 Module* Module::parseModule(const string &filePath)
