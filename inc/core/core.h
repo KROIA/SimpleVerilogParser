@@ -18,10 +18,6 @@ using std::vector;
 using std::regex;
 using std::smatch;
 
-namespace Verilog {
-    class Reg;
-
-}
 
 
 std::size_t replace_all(std::string& inout, std::string_view what, std::string_view with);
