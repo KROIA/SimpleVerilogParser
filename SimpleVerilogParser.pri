@@ -12,9 +12,9 @@ verilogParserPath = $$PWD
 verilogParserInc = $$verilogParserPath/inc
 verilogParserSrc = $$verilogParserPath/src
 
-INCLUDEPATH += $$verilogParserInc\
-               $$verilogParserInc/core \
-               $$verilogParserInc/verilog
+INCLUDEPATH += $$verilogParserInc
+           #    $$verilogParserInc/core \
+           #    $$verilogParserInc/verilog
 
 HEADERS += \
     $$verilogParserInc/verilog/verilogCode.h \

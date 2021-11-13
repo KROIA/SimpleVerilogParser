@@ -1,12 +1,14 @@
-#include "verilogModule.h"
+#include "verilog/verilogModule.h"
 
 namespace SimpleVerilog{
-Module::Module(const string &filePath)
+/*Module::Module(const string &filePath)
 {
     Module *m = parseModule(filePath);
+    if(m==nullptr)
+        throw std::runtime_error("No Module");
     *this = *m;
     delete m;
-}
+}*/
 Module::Module(const string &name,const vector<Pin> &pinList)
 {
     m_name = name;
@@ -61,6 +63,11 @@ const VerilogCode &Module::getCode() const
     return m_code;
 }
 
+const string &Module::name() const
+{
+    return m_name;
+}
+
 size_t Module::getPinCount() const
 {
     return m_pins.size();
@@ -86,6 +93,10 @@ size_t Module::getPinCount(Pin::Direction dir) const
             count += m_pins[i].dimension();
     }
     return count;
+}
+const vector<Pin> Module::pinList() const
+{
+    return m_pins;
 }
 
 Module* Module::parseModule(const string &filePath)

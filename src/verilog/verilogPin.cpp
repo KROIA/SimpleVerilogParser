@@ -1,4 +1,4 @@
-#include "verilogPin.h"
+#include "verilog/verilogPin.h"
 
 namespace SimpleVerilog{
 Pin::Pin()

@@ -1,4 +1,4 @@
-#include "verilogCode.h"
+#include "verilog/verilogCode.h"
 
 namespace SimpleVerilog{
 VerilogCode::VerilogCode()

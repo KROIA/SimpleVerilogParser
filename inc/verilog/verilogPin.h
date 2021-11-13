@@ -1,7 +1,7 @@
 #ifndef VERILOGPIN_H
 #define VERILOGPIN_H
 
-#include "core.h"
+#include "core/core.h"
 
 namespace SimpleVerilog{
 class Pin

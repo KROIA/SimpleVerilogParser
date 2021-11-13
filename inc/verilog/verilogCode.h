@@ -1,7 +1,7 @@
 #ifndef VERILOGCODE_H
 #define VERILOGCODE_H
 
-#include "core.h"
+#include "core/core.h"
 #include <fstream>
 using std::fstream;
 
